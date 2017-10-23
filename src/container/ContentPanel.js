@@ -2,33 +2,58 @@ import React, { Component } from 'react';
 import ArticleHeader from '../container/ArticleHeader.js';
 import ContentTimeline from '../container/ContentTimeline.js';
 import ContentGithub from '../container/ContentGithub.js';
-import ContentFeatured from '../container/ContentFeatured.js';
+import ContentTop from '../container/ContentTop.js';
 import { firebaseDb } from '../firebase/';
 import ReactDOM from 'react-dom';
 
 const components = {
   "timeline" : ContentTimeline,
   "github" : ContentGithub,
-  "featured" : ContentFeatured
+  "top" : ContentTop
 };
 
+const title = {
+  "en" : "Featured",
+  "ja" : "特集"
+}
+
 class ContentPanel extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { language : "", title : "" }
+  }
   initContent(id) {
-    var pathName = 'article/' + id;
-    localStorage.language = localStorage.language || 'english';
-    var langStorage = localStorage.language.substring(0, 2);
-    var contentPanel = document.getElementById("content-panel");
-    var removes = contentPanel.querySelectorAll("[data-removal='true']")
-    for (var e of removes) { e.parentNode.removeChild(e) }
-    const hue = firebaseDb.ref(pathName + "/hue");
+    var path = (id === "top") ? "top" : "article/" + id;
+    localStorage.language = localStorage.language || "english";
+    var language = localStorage.language.substring(0, 2);
+    var panelTag = document.getElementById("content-panel");
+    /*const hue = firebaseDb.ref(path + "/hue");
     hue.on('value', function(snapshot) {
       const val = snapshot.val() || 0;
       contentPanel.style.filter = "hue-rotate(" + val + "deg)";
-    });
-    const article = firebaseDb.ref(pathName + "/content_" + langStorage);
+    });*/
+    const article = firebaseDb.ref(path + "/" + language);
     article.on('value', function(snapshot) {
       const val = snapshot.val();
-      for (var i in val) {
+      var headerTag = document.createElement("section");
+      var contentTag = document.createElement("div");
+      headerTag.id = "article-header";
+      headerTag.classList.add(language);
+      contentTag.id = "content-tag";
+      panelTag.innerHTML = "";
+      panelTag.appendChild(headerTag);
+      panelTag.appendChild(contentTag);
+      const header = React.createElement(ArticleHeader, {
+        language : language,
+        title : (id === "top") ? title[language] : ""
+      });
+      const content = React.createElement(components[(id === "top") ? "top" : ""], {
+        language : language,
+        data : (id === "top") ? val.full : ""
+      });
+      ReactDOM.render(header, headerTag);
+      ReactDOM.render(content, contentTag);
+      /*for (var i in val) {
         const data = val[i];
         var section = document.createElement("section");
         var sectionId = (data.article || data.revision || data.file || data.project);
@@ -40,11 +65,11 @@ class ContentPanel extends Component {
           props[j] = data[j];
           props["id"] = sectionId;
           props["hue"] = contentPanel.style.filter;
-          props["language"] = langStorage;
+          props["language"] = language;
         }
         var element = React.createElement(components[data.type], props);
         ReactDOM.render(element, document.getElementById("content-" + sectionId));
-      }
+      }*/
     });
   }
   componentWillReceiveProps(nextProps) {
@@ -55,14 +80,8 @@ class ContentPanel extends Component {
   componentDidMount() {
     this.initContent(this.props.id);
   }
-  componentWillMount() {
-  }
   render() {
-    return (
-      <article id="content-panel">
-        <ArticleHeader id={this.props.id} language={this.props.language}></ArticleHeader>
-      </article>
-    );
+    return ( <article id="content-panel"></article> );
   }
 }
 

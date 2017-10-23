@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Header from './container/Header.js';
 import Footer from './container/Footer.js';
-import Featured from './container/Featured.js';
+import Top from './container/Top.js';
 import About from './container/About.js';
 import Article from './container/Article.js';
 import './Custom.css'
@@ -12,10 +12,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header title="Cmsy"></Header>
-        <Route exact path="/" component={Featured} />
-        <Route exact path="/start" component={About} />
-        <Route exact path="/document" component={Article} />
-        <Route exact path="/document/:id" component={Article} />
+        <Route exact path="/" component={Top} />
+        <Route exact path="/tutorial" component={About} />
+        <Route exact path="/docs" component={Article} />
+        <Route exact path="/docs/:id" component={Article} />
         <Footer></Footer>
       </div>
     );

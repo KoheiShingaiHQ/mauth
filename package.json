@@ -4,8 +4,9 @@
   "homepage": "https://koheishingaiHQ.github.io/me/",
   "private": true,
   "dependencies": {
-    "firebase": "^4.3.0",
+    "firebase": "4.3.0",
     "marked": "^0.3.6",
+    "node-sass-chokidar": "0.0.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
@@ -26,9 +27,8 @@
     "deploy": "npm run build && gh-pages -d build"
   },
   "devDependencies": {
-    "firebase": "4.3.0",
+    "node-sass-chokidar": "4.3.0",
     "gh-pages": "^1.0.0",
-    "node-sass-chokidar": "0.0.3",
     "npm-run-all": "^4.1.1"
   }
 }

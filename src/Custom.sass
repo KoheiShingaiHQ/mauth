@@ -61,12 +61,12 @@ header
       margin-right: 7px
       list-style: none
       text-align: center
-      &[data-selected="start"]
-        li.Start
+      &[data-selected="tutorial"]
+        li.Tutorial
           color: #00a2df
           cursor: default 
-      &[data-selected="document"]
-        li.Document
+      &[data-selected="docs"]
+        li.Docs
           color: #00a2df
           cursor: default
     li
@@ -168,12 +168,15 @@ header
             padding-top: 7px
 
 main
-  &#featured
+  &#top
     padding: 26px 26px 26px
     width: 100%
     margin-top: 64px
     opacity: .93
-  section#content-featured, &#featured
+  section#content-top
+    padding: 12px 26px 26px
+    width: 100%
+  section#content-top, &#top
     opacity: .93
     section
       &#contents-full 
@@ -183,12 +186,14 @@ main
           position: relative
           list-style-type: none
           overflow: hidden
+          a
+            text-decoration: none
           li
             background: #fafafa
             border-bottom: 12px solid #fff
             width: 100%
             cursor: pointer
-            min-height: 300px
+            min-height: 320px
             background-size: auto
             background-position: 50%
             background: repeat
@@ -207,7 +212,7 @@ main
             color: #696969
             cursor: pointer
             overflow: hidden
-            min-height: 300px
+            min-height: 320px
           li:nth-child(odd)
             border-right: 6px solid #fff
           li:nth-child(even)
@@ -337,7 +342,8 @@ main
               font-size: 15px
               font-weight: 300
               line-height: 1.4em
-              font-family: 'Roboto', sans-serif    
+              font-family: 'Roboto', sans-serif
+              text-indent: 1px 
   &#article
     position: static
     top: 64px
@@ -394,7 +400,7 @@ main
             border-bottom: 12px solid #fff
             width: 100%
             cursor: pointer
-            min-height: 300px
+            min-height: 320px
             background-size: auto;
             background-position: 50%;
             background: repeat;
@@ -413,7 +419,7 @@ main
             color: #696969
             cursor: pointer
             overflow: hidden
-            min-height: 300px
+            min-height: 320px
           li:nth-child(odd)
             border-right: 6px solid #fff
           li:nth-child(even)
@@ -975,9 +981,9 @@ footer
   background: #fff
   border-top: 1px solid #e6e6e6
   bottom: 0px
-  &[data-selected=""]
+  &[data-selected=""], &[data-selected="tutorial"]
     position: static
-  &[data-selected="article"]
+  &[data-selected="docs"]
     position: absolute
     bottom: 0px
   section
@@ -1036,7 +1042,7 @@ footer
         display: block
         &.search-button
           display: none
-          &[data-selected="article"]
+          &[data-selected="docs"]
             display: block
     .right
       transform: translateX(257px)
@@ -1066,21 +1072,25 @@ footer
           display: none
 
   main
-    &#featured
+    &#top
       padding: 0px
-    section#content-featured, &#featured
+    section#content-top, &#top
       section
         &#contents-full
           ul
             li
               padding: 12px
+            a:nth-last-child(1)
+              display: block
+              margin-bottom: -12px
         &#contents-half 
           ul
             li
               width: 100%
               border-left: none !important
               border-right: none !important
-            li:nth-last-child(1)
+            a:nth-last-child(1)
+              display: block
               margin-bottom: -12px
         .content
           padding-top: 39px
@@ -1193,8 +1203,10 @@ footer
           background: #fff
           margin-top: 64px
           height: 100%
+          width: 100%
+          border: none
           &:before
             content: ""
   footer
-    &[data-selected="document"]
+    &[data-selected="docs"]
       display: none
