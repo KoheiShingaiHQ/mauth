@@ -14,8 +14,8 @@ class Nav extends Component {
   componentDidMount() {
     var menu = [];
     var data = [
-      {name: 'Article', path: '/article'},
-      {name: 'About', path: '/'},
+      {name: 'Document', path: '/document'},
+      {name: 'Start', path: '/start'},
     ];
     for(var i in data){
       menu.push(<Link to={data[i].path} key={data[i].name}><li className={data[i].name}>{data[i].name}</li></Link>);

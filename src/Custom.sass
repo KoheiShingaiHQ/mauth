@@ -52,7 +52,7 @@ header
     text-decoration: none !important
     font-size: 18px
     font-weight: 400
-    cursor: default
+    cursor: pointer
     -webkit-font-smoothing: antialiased
   nav
     ul
@@ -61,12 +61,12 @@ header
       margin-right: 7px
       list-style: none
       text-align: center
-      &[data-selected=""]
-        li.About
+      &[data-selected="start"]
+        li.Start
           color: #00a2df
           cursor: default 
-      &[data-selected="article"]
-        li.Article
+      &[data-selected="document"]
+        li.Document
           color: #00a2df
           cursor: default
     li
@@ -168,7 +168,12 @@ header
             padding-top: 7px
 
 main
-  section#content-featured
+  &#featured
+    padding: 26px 26px 26px
+    width: 100%
+    margin-top: 64px
+    opacity: .93
+  section#content-featured, &#featured
     opacity: .93
     section
       &#contents-full 
@@ -184,6 +189,9 @@ main
             width: 100%
             cursor: pointer
             min-height: 300px
+            background-size: auto
+            background-position: 50%
+            background: repeat
       &#contents-half 
         ul
           margin: 0
@@ -387,6 +395,9 @@ main
             width: 100%
             cursor: pointer
             min-height: 300px
+            background-size: auto;
+            background-position: 50%;
+            background: repeat;
       &#contents-half 
         ul
           margin: 0
@@ -961,7 +972,6 @@ footer
   position: absolute
   width: 100%
   margin: 0
-  margin-top: 40px
   background: #fff
   border-top: 1px solid #e6e6e6
   bottom: 0px
@@ -1056,8 +1066,14 @@ footer
           display: none
 
   main
-    section#content-featured
+    &#featured
+      padding: 0px
+    section#content-featured, &#featured
       section
+        &#contents-full
+          ul
+            li
+              padding: 12px
         &#contents-half 
           ul
             li
@@ -1180,5 +1196,5 @@ footer
           &:before
             content: ""
   footer
-    &[data-selected="article"]
+    &[data-selected="document"]
       display: none
