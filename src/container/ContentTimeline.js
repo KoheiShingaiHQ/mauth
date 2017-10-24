@@ -4,23 +4,9 @@ class ContentTimeline extends Component {
   constructor(props) {
     super(props);
     if (this.props.article.indexOf("http") === -1) {
-      this.state = { 
-        url : "#/article/" + this.props.article,
-        target : ""
-      };
+      this.state = { url : "#/article/" + this.props.article, target : "" };
     } else {
-      this.state = { 
-        url : this.props.article,
-        target : "_blank"
-      }
-    }
-  }
-  componentDidMount() {
-    var image = document.getElementById("image-" + this.props.article);
-    var hue = this.props.hue.split("hue-rotate(")[1];
-    hue = parseInt(hue.split("deg)")[0], 10);
-    if (this.props.image) {
-      image.style.filter = "hue-rotate(" + -hue + "deg)";
+      this.state = { url : this.props.article, target : "_blank" };
     }
   }
   render() {

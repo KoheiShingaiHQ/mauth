@@ -14,7 +14,7 @@ class About extends Component {
     localStorage.language = localStorage.language || 'english';
     var language = localStorage.language.substring(0, 2);
     var aboutTag = document.getElementById("about");
-    var about = firebaseDb.ref("about/" + language);
+    var about = firebaseDb.ref("tutorial/" + language);
     var self = this;
     about.on('value', function(snapshot) {
       const val = snapshot.val();

@@ -63,11 +63,11 @@ header
       text-align: center
       &[data-selected="tutorial"]
         li.Tutorial
-          color: #00a2df
+          color: #262626
           cursor: default 
       &[data-selected="docs"]
         li.Docs
-          color: #00a2df
+          color: #262626
           cursor: default
     li
       float: right
@@ -443,7 +443,7 @@ main
               color: #bdd0db
             &:last-child
               font-size: 2.3em
-              color: #6cbfee
+              color: rgb(128, 128, 128)
         &.en> time > span
           font-family: 'Roboto', sans-serif
         &.ja> time > span
@@ -466,9 +466,9 @@ main
           line-height: 40px
           -webkit-font-smoothing: antialiased
           color: #fff
-          background: #46a4da
+          background: #656565
           border-radius: 50%
-          box-shadow: 0 0 0 8px #afdcf8
+          box-shadow: 0 0 0 8px #bbbbbb
           text-align: center
           margin-left: 128px
           margin-top: 9px
@@ -476,14 +476,14 @@ main
             content: ''
             position: absolute
             width: 10px
-            background: #afdcf8
+            background: #bbbbbb
             height: 1100%
             margin-top: 47px
             margin-left: -5px
         .content
-          background: #6cbfee
+          background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/grey_wash_wall.png)
           margin: 10px 0 0 199px
-          color: #fff
+          color: rgba(255,255,255,.88)
           padding: 2em
           font-size: 1.2em
           font-weight: 300
@@ -492,6 +492,8 @@ main
           padding-bottom: 34px
           cursor: pointer
           text-align: left
+          background-size: auto
+          background-repeat: repeat
           &:hover
             opacity: .8
           &:after
@@ -502,13 +504,13 @@ main
             width: 0
             position: absolute
             pointer-events: none
-            border-right-color: #6cbfee
+            border-right-color: #616161
             border-width: 10px
             top: 10px
           h2
             margin-top: 0px
             padding: 0 0 10px 0
-            border-bottom: 1px solid rgba(255,255,255,0.4)
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.54)
             font-family: 'Roboto', sans-serif
             font-weight: 300
           p

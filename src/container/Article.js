@@ -23,10 +23,8 @@ class Article extends Component {
       articleTag.appendChild(sideTag);
       const content = React.createElement(ContentPanel, {id : id});
       const side = React.createElement(SidePanel, {id : id});
-      if (id === "top") {
       ReactDOM.render(content, contentTag);
       ReactDOM.render(side, sideTag);
-      }
     }
   }
   initArticle(props) {

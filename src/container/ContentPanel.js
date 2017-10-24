@@ -23,7 +23,7 @@ class ContentPanel extends Component {
     this.state = { language : "", title : "" }
   }
   initContent(id) {
-    var path = (id === "top") ? "top" : "article/" + id;
+    var path = (id === "top") ? "top" : "docs/" + id;
     localStorage.language = localStorage.language || "english";
     var language = localStorage.language.substring(0, 2);
     var panelTag = document.getElementById("content-panel");
@@ -32,44 +32,43 @@ class ContentPanel extends Component {
       const val = snapshot.val() || 0;
       contentPanel.style.filter = "hue-rotate(" + val + "deg)";
     });*/
-    const article = firebaseDb.ref(path + "/" + language);
-    article.on('value', function(snapshot) {
+    console.log(path + "/" + language);
+    const docs = firebaseDb.ref(path + "/" + language);
+    docs.on('value', function(snapshot) {
       const val = snapshot.val();
+      if (val) {
       var headerTag = document.createElement("section");
-      var contentTag = document.createElement("div");
       headerTag.id = "article-header";
       headerTag.classList.add(language);
-      contentTag.id = "content-tag";
       panelTag.innerHTML = "";
       panelTag.appendChild(headerTag);
-      panelTag.appendChild(contentTag);
       const header = React.createElement(ArticleHeader, {
         language : language,
-        title : (id === "top") ? title[language] : ""
-      });
-      const content = React.createElement(components[(id === "top") ? "top" : ""], {
-        language : language,
-        data : (id === "top") ? val.full : ""
+        title : (id === "top") ? title[language] : val.title
       });
       ReactDOM.render(header, headerTag);
-      ReactDOM.render(content, contentTag);
-      /*for (var i in val) {
-        const data = val[i];
-        var section = document.createElement("section");
-        var sectionId = (data.article || data.revision || data.file || data.project);
-        section.id = "content-" + sectionId;
-        section.dataset.removal = true;
-        contentPanel.appendChild(section);
-        var props = {};
-        for (var j in data) {
-          props[j] = data[j];
-          props["id"] = sectionId;
-          props["hue"] = contentPanel.style.filter;
-          props["language"] = language;
+      if (id === "top") {
+        var contentTag = document.createElement("div");
+        panelTag.appendChild(contentTag);
+        const content = React.createElement(components[id], { language : language, data : val.full });
+        ReactDOM.render(content, contentTag);
+      } else {
+        for (var i in val.content) {
+          var contentTag = document.createElement("section");
+          const data = val.content[i];
+          contentTag.id = "content-" + (data.article || data.revision || data.file || data.project);
+          panelTag.appendChild(contentTag);
+          var props = {};
+          for (var j in data) {
+            props[j] = data[j];
+            props["id"] = contentTag.id;
+            props["language"] = language;
+          }
+          var content = React.createElement(components[data.type], props);
+          ReactDOM.render(content, contentTag);
         }
-        var element = React.createElement(components[data.type], props);
-        ReactDOM.render(element, document.getElementById("content-" + sectionId));
-      }*/
+      }
+      }
     });
   }
   componentWillReceiveProps(nextProps) {
