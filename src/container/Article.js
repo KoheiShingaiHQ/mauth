@@ -11,6 +11,21 @@ class Article extends Component {
   setFooterOpacity(opacity) {
     document.getElementsByTagName("footer")[0].style.opacity = opacity;
   }
+  hideScreen() {
+    var header = document.getElementsByTagName('header')[0];
+    var main = document.getElementsByTagName('main')[0];
+    var searchResult = document.getElementById('search-result');
+    header.classList.remove('show-menu');
+    if (main) {
+      main.classList.remove('show-search');
+    }
+    if (searchResult) {
+      if (window.location.hash === "#/") {
+        searchResult.classList.remove('show');
+        document.getElementById('search-input').value = "";
+      }
+    }
+  }
   updateArticle(id) {
     var articleTag = document.getElementById("article");
     if (articleTag) {
@@ -36,22 +51,10 @@ class Article extends Component {
       if (self.state.id !== id) {
         self.updateArticle(id || "top");
       }
-      var header = document.getElementsByTagName('header')[0];
-      var main = document.getElementsByTagName('main')[0];
-      var searchResult = document.getElementById('search-result');
-      header.classList.remove('show-menu');
-      if (main) {
-        main.classList.remove('show-search');
-      }
-      if (searchResult) {
-        if (window.location.hash === "#/") {
-          searchResult.classList.remove('show');
-          document.getElementById('search-input').value = "";
-        }
-      }
     }, false);
   }
   componentDidMount() {
+    this.hideScreen();
     this.setFooterOpacity(1);
     this.initArticle(this.props);
   }

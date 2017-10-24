@@ -20,19 +20,12 @@ const title = {
 class ContentPanel extends Component {
   constructor(props) {
     super(props);
-    this.state = { language : "", title : "" }
   }
   initContent(id) {
     var path = (id === "top") ? "top" : "docs/" + id;
     localStorage.language = localStorage.language || "english";
     var language = localStorage.language.substring(0, 2);
     var panelTag = document.getElementById("content-panel");
-    /*const hue = firebaseDb.ref(path + "/hue");
-    hue.on('value', function(snapshot) {
-      const val = snapshot.val() || 0;
-      contentPanel.style.filter = "hue-rotate(" + val + "deg)";
-    });*/
-    console.log(path + "/" + language);
     const docs = firebaseDb.ref(path + "/" + language);
     docs.on('value', function(snapshot) {
       const val = snapshot.val();
@@ -44,13 +37,13 @@ class ContentPanel extends Component {
       panelTag.appendChild(headerTag);
       const header = React.createElement(ArticleHeader, {
         language : language,
-        title : (id === "top") ? title[language] : val.title
+        title : val.title
       });
       ReactDOM.render(header, headerTag);
       if (id === "top") {
         var contentTag = document.createElement("div");
         panelTag.appendChild(contentTag);
-        const content = React.createElement(components[id], { language : language, data : val.full });
+        const content = React.createElement(components[val.type], { language : language, data : val.full });
         ReactDOM.render(content, contentTag);
       } else {
         for (var i in val.content) {

@@ -10,31 +10,29 @@ const components = {
 };
 
 class SidePanel extends Component {
-  initSide(props) {
-    var pathName = 'article/' + props.id;
+  initSide(id) {
+    var path = (id === "top") ? "top" : "docs/" + id;
     localStorage.language = localStorage.language || 'english';
-    var langStorage = localStorage.language.substring(0, 2);
+    var language = localStorage.language.substring(0, 2);
     var sidePanel = document.getElementById("side-panel");
     var removes = sidePanel.querySelectorAll("[data-removal='true']");
     for (var e of removes) { e.parentNode.removeChild(e) }
-    var side = firebaseDb.ref(pathName + "/side_" + langStorage);
-    var self = props;
+    var side = firebaseDb.ref(path + "/" + language + "/side");
     side.on('value', function(snapshot) {
       const val = snapshot.val();
       for (var i in val) {
         const data = val[i];
-        var section = document.createElement("section");
-        section.id = "side-" + i;
-        section.dataset.removal = true;
-        sidePanel.appendChild(section);
+        var sideTag = document.createElement("section");
+        sideTag.id = "side-" + i;
+        sidePanel.appendChild(sideTag);
         var props = {};
         for (var j in data) {
           props[j] = data[j];
-          props["id"] = self.id;
-          props["language"] = langStorage;
+          props["id"] = id;
+          props["language"] = language;
         }
-        var element = React.createElement(components[i], props);
-        ReactDOM.render(element, document.getElementById("side-" + i));
+        var side = React.createElement(components[i], props);
+        ReactDOM.render(side, sideTag);
       }
     });
   }
@@ -44,7 +42,7 @@ class SidePanel extends Component {
     }
   }
   componentDidMount() {
-    this.initSide(this.props);
+    this.initSide(this.props.id);
   }
   render() {
     return (

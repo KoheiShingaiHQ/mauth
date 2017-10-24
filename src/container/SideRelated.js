@@ -4,40 +4,43 @@ import { firebaseDb } from '../firebase/';
 import ReactDOM from 'react-dom';
 
 class SideRelated extends Component {
+  constructor(props) {
+    super(props);
+  }
   initRelated(props) {
-    var pathName = 'article/' + props.id;
-    localStorage.language = localStorage.language || 'english';
-    var langStorage = localStorage.language.substring(0, 2);
+    var path = (props.id === "top") ? "top/" + props.language : "docs/" + props.id + "/" + props.language;
     var sideRelated = document.getElementById("related");
-    var removes = sideRelated.querySelectorAll("[data-removal='true']");
-    for (var e of removes) { e.parentNode.removeChild(e) }
-    var related = firebaseDb.ref(pathName + "/side_"+ langStorage +"/related");
+    if (sideRelated) {
+    var related = firebaseDb.ref(path + "/side/related");
+    var self = props;
     related.on('value', function(snapshot) {
       const val = snapshot.val();
       for (var i in val) {
         var data = val[i];
         var parent = document.createElement("li");
         parent.classList.add("side-related-content");
-        parent.classList.add(langStorage);
+        parent.classList.add(self.language);
         sideRelated.appendChild(parent);
         var props = {
           title : data.split(":::")[0].split('-').join(' '),
           href : '#' + data.split(":::")[1],
-          language : langStorage,
+          language : self.language,
           target : (data.indexOf('http') !== -1) ? '_blank' : ''
         };
         var child = React.createElement(SideRelatedContent, props);
         ReactDOM.render(child, parent);
       }
     });
-  }
-  componentDidMount() {
-    this.initRelated(this.props);
+    }
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.id !== this.id) {
       this.initRelated(nextProps);
     }
+  }
+  componentDidMount() {
+    console.log(this.props);
+    this.initRelated(this.props);
   }
   render() {
     return (

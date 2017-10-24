@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { firebaseDb } from '../firebase/';
 
 class SideLanguage extends Component {
+  constructor(props) {
+    super(props);
+  }
   initLanguage(props) {
-    var pathName = 'article/' + props.id;
-    localStorage.language = localStorage.language || 'english';
-    var langStorage = localStorage.language.substring(0, 2);
-    var menuLanguage = document.getElementById("menu-language");
+    var path = (props.id === "top") ? "top/" + props.language : "docs/" + props.id + "/" + props.language;
     var currentLanguage = document.getElementById("current-language");
-    var removes = menuLanguage.querySelectorAll("[data-removal='true']");
-    for (var e of removes) { e.parentNode.removeChild(e) } 
-    var language = firebaseDb.ref(pathName + "/side_"+ langStorage +"/language");
+    var menuLanguage = document.getElementById("menu-language");
+    if (currentLanguage && menuLanguage) {
+    var language = firebaseDb.ref(path + "/side/language");
     language.on('value', function(snapshot) {
       const val = snapshot.val();
       for (var i in val) {
@@ -23,13 +23,13 @@ class SideLanguage extends Component {
           dataId = val[i].split(':::')[1]; 
         }
         var element = document.createElement("div");
-        if (langStorage === dataId.substring(0, 2)) {
+        if (props.language === dataId.substring(0, 2)) {
           currentLanguage.innerText = data || 'english';
           element.classList.add('selected');
         }
         element.classList.add('language');
         element.innerText = data;
-        element["language"] = langStorage;
+        element["language"] = props.language;
         element.setAttribute('data', dataId);
         menuLanguage.appendChild(element);
       }
@@ -45,6 +45,7 @@ class SideLanguage extends Component {
         menu.style.display = "none";
       }
     }
+  }
   }
   clickSideLanguage(e) {
     e.preventDefault();

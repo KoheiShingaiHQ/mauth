@@ -63,11 +63,11 @@ header
       text-align: center
       &[data-selected="tutorial"]
         li.Tutorial
-          color: #262626
+          color: #3897f0
           cursor: default 
       &[data-selected="docs"]
         li.Docs
-          color: #262626
+          color: #3897f0
           cursor: default
     li
       float: right
@@ -149,7 +149,7 @@ header
         h3
           text-transform: capitalize
           border-top: 1px dashed #e6e6e6
-          color: #00a2df
+          color: #3897f0
           margin: 0px
         p
           display: block
@@ -173,6 +173,14 @@ main
     width: 100%
     margin-top: 64px
     opacity: .93
+  &.ja
+    .content > h2,
+    .content > h3,
+    .content > h4,
+    .content > h5
+      font-family: 'Noto Sans JP', sans-serif !important
+      font-weight: 300 !important
+      font-size: 30px !important
   section#content-top
     padding: 12px 26px 26px
     width: 100%
@@ -235,9 +243,9 @@ main
         font-weight: 600
         letter-spacing: -.005em
         font-family: 'Roboto', sans-serif
-        -webkit-font-smoothing: antialiased
+        -webkit-font-smoothing: antialiased   
       &> h3
-        font-size: 27px
+        font-size: 31px
         line-height: 1.14815
         font-weight: 400
         letter-spacing: .008em
@@ -385,6 +393,7 @@ main
         &.ja> h1 
           font-family: 'Noto Sans JP', sans-serif
           font-weight: 300
+          font-size: 41px
         &> h1:first-letter 
           text-transform: capitalize
     section
@@ -620,7 +629,7 @@ main
           position: absolute
           right: 70px
           transform: translateY(-9px)
-          color: #00a2df
+          color: #3897f0
         &.en 
           h3.repository
             font-size: 20px
@@ -705,7 +714,7 @@ main
           font-family: 'Noto Sans JP', sans-serif
           font-size: 16px
         a
-          color: #00a2df
+          color: #3897f0
           text-decoration: none
           &:hover
             text-decoration: underline
@@ -819,7 +828,7 @@ main
             vertical-align: baseline
             font-size: 15px
             font-weight: 300
-            color: #00a2df
+            color: #3897f0
             cursor: pointer
             font-family: 'Roboto', sans-serif
             text-transform: capitalize
@@ -841,7 +850,7 @@ main
           -webkit-transform: translate3d(0, -2px, 0)
           transform: translate3d(0, -2px, 0)
           font-size: 1.2rem
-          fill: #00a2df
+          fill: #3897f0
           cursor: pointer
         #menu
           display: none
@@ -906,7 +915,7 @@ main
               font-size: 15px
               text-transform: capitalize
               &.selected
-                color: #00a2df
+                color: #3897f0
                 cursor: default
                 &:hover
                   background: #fff            
@@ -966,7 +975,7 @@ main
             cursor: pointer
             outline: none
             -webkit-user-select: none
-            color: #00a2df
+            color: #3897f0
             font-family: 'Roboto', sans-serif
             &:first-letter
               text-transform: capitalize
@@ -1132,7 +1141,6 @@ footer
       overflow-x: hidden
       &.show-search 
         section#article-header, section.content-timeline, section.content-github, section#content-featured
-          filter: blur(100px)
       article#content-panel
         width: 100%
         height: 100%
