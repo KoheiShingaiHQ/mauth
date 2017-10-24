@@ -36,6 +36,7 @@ class About extends Component {
       if (aboutTag && val) {
         var squareTag = document.createElement("section");
         squareTag.id = "contents-square";
+        squareTag.classList.add(language);
         aboutTag.innerHTML = "";
         aboutTag.appendChild(squareTag);
         const square = React.createElement(ContentsSquare, {data : val.square});

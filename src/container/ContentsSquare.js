@@ -4,7 +4,7 @@ import ContentLabel from '../container/ContentLabel.js';
 class ContentsSquare extends Component {
   constructor(props) {
     super(props);
-    this.state = { contents : [] }
+    this.state = { contents : [], language : "" }
   }
   componentDidMount() {
     var contents = [];
