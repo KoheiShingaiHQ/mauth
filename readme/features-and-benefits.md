@@ -1,10 +1,5 @@
 # General CMS
-> 1. Learn **WordPress** - 3 days
-> 2. Learn **PHP** - 1 week
-> 3. Learn **Web design** - 3 days
-> 4. Learn **AWS** - 1 week  
-> ⋮
-> 100. **Complete** - Weeks later
+![general-cms-1](https://c1.staticflickr.com/5/4484/26142323269_39f1b465bb_h.jpg)
 
 # General CMS - Outsourcing
 > 1. **Request** - 3 days
