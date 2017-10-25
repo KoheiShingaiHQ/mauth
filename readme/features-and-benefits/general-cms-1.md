@@ -1,2 +1,7 @@
 # General CMS
-![general-cms-1](https://c1.staticflickr.com/5/4484/26142323269_39f1b465bb_h.jpg)
+> 1. **WordPress** の習得 - 3日
+> 2. **PHP** の習得 - 1週間
+> 3. **Web デザイン**の習得 - 3日
+> 4. **AWS** の習得 - 1週間  
+> ⋮
+> 100. **完成** - 数週間後
