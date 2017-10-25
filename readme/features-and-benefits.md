@@ -6,8 +6,6 @@
 > ⋮
 > 100. **Complete** - Weeks later
 
-It takes time, produces mediocre work and would prove to be troublesome when implementing add-on changes.
-
 # General CMS - Outsourcing
 > 1. **Request** - 3 days
 > 2. **Requirement definition** - 1 week
@@ -15,8 +13,6 @@ It takes time, produces mediocre work and would prove to be troublesome when imp
 > 4. **Review** - 3 days  
 > ⋮
 > 20. **Complete** - Weeks later
-
-It is costly and takes time, and additional implementations cost more than expected.
 
 # Cmys
 > 1. Complete **tutorial 1** - 30 min
