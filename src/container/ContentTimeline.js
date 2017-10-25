@@ -4,7 +4,7 @@ class ContentTimeline extends Component {
   constructor(props) {
     super(props);
     if (this.props.article.indexOf("http") === -1) {
-      this.state = { url : "#/article/" + this.props.article, target : "" };
+      this.state = { url : "#/docs/" + this.props.article, target : "" };
     } else {
       this.state = { url : this.props.article, target : "_blank" };
     }

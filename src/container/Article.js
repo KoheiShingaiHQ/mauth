@@ -48,7 +48,8 @@ class Article extends Component {
     window.addEventListener("hashchange", function(){
       var id = window.location.hash.split("#/docs").join("");
       id = id.split("/").join("");
-      if (self.state.id !== id) {
+      if (!window.id || window.id !== id) {
+        window.id = id;
         self.updateArticle(id || "top");
       }
     }, false);
