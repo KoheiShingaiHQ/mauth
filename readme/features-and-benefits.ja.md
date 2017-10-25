@@ -1,3 +1,4 @@
+# 一般的な CMS vs Cmsy
 ## 一般的な CMS
 > 1. **WordPress** の習得 - 3日
 > 2. **PHP** の習得 - 1週間
