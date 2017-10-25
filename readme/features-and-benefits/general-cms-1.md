@@ -1,7 +1,7 @@
 # General CMS
-> 1. **WordPress** の習得 - 3日
-> 2. **PHP** の習得 - 1週間
-> 3. **Web デザイン**の習得 - 3日
-> 4. **AWS** の習得 - 1週間  
+> 1. Learn **WordPress** - 3 days
+> 2. Learn **PHP** - 1 week
+> 3. Learn **Web design** - 3 days
+> 4. Learn **AWS** - 1 week  
 > ⋮
-> 100. **完成** - 数週間後
+> 100. **Complete** - Weeks later
