@@ -1,2 +1,2 @@
 # Cmsy
-![cmsy](https://c1.staticflickr.com/5/4484/26142323269_39f1b465bb_h.jpg)
+![cmsy](https://c1.staticflickr.com/5/4509/37889003522_72f43a2272_h.jpg)
