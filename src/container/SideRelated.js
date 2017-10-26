@@ -39,7 +39,6 @@ class SideRelated extends Component {
     }
   }
   componentDidMount() {
-    console.log(this.props);
     this.initRelated(this.props);
   }
   render() {
