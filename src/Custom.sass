@@ -3,6 +3,9 @@
   box-sizing: border-box
   -webkit-font-smoothing: antialiased
 
+body
+  overflow-x: hidden
+
 header
   position: fixed
   left: 0px
@@ -255,7 +258,7 @@ main
       &> h3
         font-size: 31px
         line-height: 1.14815
-        font-weight: 400
+        font-weight: 300
         letter-spacing: .008em
         margin-top: 6px
         font-family: 'Roboto', sans-serif
@@ -287,7 +290,7 @@ main
     top: 64px
     margin: 0 auto
     margin-top: 12px
-    margin-bottom: 64px
+    margin-bottom: 68px
     max-width: 2560px
     padding: 0px 12px
     opacity: .93
@@ -1013,6 +1016,10 @@ footer
     position: absolute
   &[data-selected="tutorial"]
     position: static
+    &[data-scroll="true"]
+      position: static
+    &[data-scroll="false"]
+      position: absolute
   &[data-selected="docs"]
     position: absolute
     bottom: 0px

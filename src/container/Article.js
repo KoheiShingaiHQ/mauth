@@ -8,6 +8,19 @@ class Article extends Component {
     super(props);
     this.state = { id : this.props.match.params.id || "" }
   }
+  setScrollStatus() {
+    if (document.getElementById('about')) {
+      var header = document.getElementsByTagName('header')[0];
+      var main = document.getElementById('about');
+      var footer = document.getElementsByTagName('footer')[0];
+      var b = window.innerHeight;
+      var h = header.scrollHeight;
+      var m = main.scrollHeight;
+      var f = footer.scrollHeight;
+      var t = b - (h + m + f);
+      footer.dataset.scroll = (t < 12) ? true : false;
+    }
+  }
   setFooterOpacity(opacity) {
     document.getElementsByTagName("footer")[0].style.opacity = opacity;
   }
@@ -52,6 +65,7 @@ class Article extends Component {
         window.id = id;
         self.updateArticle(id || "top");
         self.hideScreen();
+        self.setScrollStatus();
       }
     }, false);
   }
