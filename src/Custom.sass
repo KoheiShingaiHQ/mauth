@@ -1009,7 +1009,9 @@ footer
   background: #fff
   border-top: 1px solid #e6e6e6
   bottom: 0px
-  &[data-selected=""], &[data-selected="tutorial"]
+  &[data-selected=""]
+    position: absolute
+  &[data-selected="tutorial"]
     position: static
   &[data-selected="docs"]
     position: absolute
@@ -1236,3 +1238,8 @@ footer
   footer
     &[data-selected="docs"]
       display: none
+      
+@media only screen and (max-height: 1162px)
+  footer
+    &[data-selected=""]
+      position: static
