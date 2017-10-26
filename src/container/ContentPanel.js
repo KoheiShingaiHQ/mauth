@@ -29,6 +29,7 @@ class ContentPanel extends Component {
     const docs = firebaseDb.ref(path + "/" + language);
     docs.on('value', function(snapshot) {
       const val = snapshot.val();
+      console.log(val);
       if (val) {
       var headerTag = document.createElement("section");
       headerTag.id = "article-header";

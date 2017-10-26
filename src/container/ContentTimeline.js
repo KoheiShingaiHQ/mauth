@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 class ContentTimeline extends Component {
   constructor(props) {
     super(props);
-    if (this.props.article.indexOf("http") === -1) {
-      this.state = { url : "#/docs/" + this.props.article, target : "" };
-    } else {
+    if (this.props.article.indexOf("http") !== -1) {
       this.state = { url : this.props.article, target : "_blank" };
+    } else if (this.props.article.indexOf("#") !== -1) {
+      this.state = { url : this.props.article, target : "" };
+    } else {
+      this.state = { url : "#/docs/" + this.props.article, target : "" };
     }
   }
   render() {
