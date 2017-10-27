@@ -18,6 +18,7 @@ class Nav extends Component {
       if (currentPath === path[i]) {
         return i;
       }
+      return "";
     }
   }
   componentDidMount() {

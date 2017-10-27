@@ -1013,13 +1013,13 @@ footer
   bottom: 0px
   &[data-selected=""]
     position: absolute
-  &[data-selected="tutorial"]
+  &[data-selected="list"]
     position: static
     &[data-scroll="true"]
       position: static
     &[data-scroll="false"]
       position: absolute
-  &[data-selected="docs"]
+  &[data-selected="detail"]
     position: absolute
     bottom: 0px
   section
@@ -1078,7 +1078,7 @@ footer
         display: block
         &.search-button
           display: none
-          &[data-selected="docs"]
+          &[data-selected="detail"]
             display: block
     .right
       transform: translateX(257px)
@@ -1242,7 +1242,7 @@ footer
           &:before
             content: ""
   footer
-    &[data-selected="docs"]
+    &[data-selected="detail"]
       display: none
       
 @media only screen and (max-height: 1162px)
