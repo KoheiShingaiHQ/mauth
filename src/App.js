@@ -5,7 +5,7 @@ import Footer from './container/Footer.js';
 import Top from './container/Top.js';
 import About from './container/About.js';
 import Article from './container/Article.js';
-import './Custom.css'
+import './Custom.css';
 
 class App extends Component {
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
         <Route exact path="/docs/:id" component={Article} />
         <Footer></Footer>
       </div>
-    );
+    )
   }
 }
 

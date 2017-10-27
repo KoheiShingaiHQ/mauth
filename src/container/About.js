@@ -6,18 +6,19 @@ import ReactDOM from 'react-dom';
 class About extends Component {
   constructor(props) {
     super(props);
-    this.state = { hasScroll : false };
   }
   setScrollStatus() {
-    var header = document.getElementsByTagName('header')[0];
-    var main = document.getElementById('about');
-    var footer = document.getElementsByTagName('footer')[0];
-    var b = window.innerHeight;
-    var h = header.scrollHeight;
-    var m = main.scrollHeight;
-    var f = footer.scrollHeight;
-    var t = b - (h + m + f);
-    footer.dataset.scroll = (t < 12) ? true : false;
+    if (document.getElementById('about')) {
+      var header = document.getElementsByTagName('header')[0];
+      var main = document.getElementById('about');
+      var footer = document.getElementsByTagName('footer')[0];
+      var b = window.innerHeight;
+      var h = header.scrollHeight;
+      var m = main.scrollHeight;
+      var f = footer.scrollHeight;
+      var t = b - (h + m + f);
+      footer.dataset.scroll = (t < 12) ? true : false;
+    }
   }
   hideScreen() {
     var header = document.getElementsByTagName('header')[0];
