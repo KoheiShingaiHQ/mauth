@@ -1,5 +1,4 @@
 *
-  -webkit-box-sizing: border-box
   box-sizing: border-box
   -webkit-font-smoothing: antialiased
 
@@ -10,24 +9,24 @@ header
   position: fixed
   left: 0px
   top: 0px
-  overflow: hidden
   z-index: 2
   width: 100%
   height: 64px
-  border-bottom: 1px solid #e6e6e6
+  overflow: hidden
   background: #fff
+  border-bottom: 1px solid #e6e6e6
   > div
     position: absolute
     top: 0px
-    overflow: hidden
     height: 64px
+    overflow: hidden
   > .left
     left: 0px
     width: calc(100% - 256px)
     svg 
+      display: none
       position: absolute
       top: 0px
-      display: none
       margin-top: 19.5px
       margin-bottom: 19.5px
       fill: rgba(0, 0, 0, 0.54)
@@ -64,12 +63,12 @@ header
       margin-right: 7px
       list-style: none
       text-align: center
-      &[data-selected="tutorial"]
-        li.Tutorial
+      &[data-selected="list"]
+        li.list
           color: #3897f0
           cursor: default 
-      &[data-selected="docs"]
-        li.Docs
+      &[data-selected="detail"]
+        li.detail
           color: #3897f0
           cursor: default
     li
