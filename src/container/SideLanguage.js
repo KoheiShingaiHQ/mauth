@@ -6,7 +6,7 @@ class SideLanguage extends Component {
     super(props);
   }
   initLanguage(props) {
-    var path = (props.id === "top") ? "top/" + props.language : "docs/" + props.id + "/" + props.language;
+    var path = (props.id === "top") ? "top/" + props.language : "detail/" + props.id + "/" + props.language;
     var currentLanguage = document.getElementById("current-language");
     var menuLanguage = document.getElementById("menu-language");
     if (currentLanguage && menuLanguage) {

@@ -11,7 +11,7 @@ const components = {
 
 class SidePanel extends Component {
   initSide(id) {
-    var path = (id === "top") ? "top" : "docs/" + id;
+    var path = (id === "top") ? "top" : "detail/" + id;
     localStorage.language = localStorage.language || 'english';
     var language = localStorage.language.substring(0, 2);
     var sidePanel = document.getElementById("side-panel");

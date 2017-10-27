@@ -8,7 +8,7 @@ class SideRelated extends Component {
     super(props);
   }
   initRelated(props) {
-    var path = (props.id === "top") ? "top/" + props.language : "docs/" + props.id + "/" + props.language;
+    var path = (props.id === "top") ? "top/" + props.language : "detail/" + props.id + "/" + props.language;
     var sideRelated = document.getElementById("related");
     if (sideRelated) {
     var related = firebaseDb.ref(path + "/side/related");

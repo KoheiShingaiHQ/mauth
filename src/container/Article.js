@@ -3,6 +3,8 @@ import ContentPanel from '../container/ContentPanel.js';
 import SidePanel from '../container/SidePanel.js';
 import ReactDOM from 'react-dom';
 
+const path = { list : "/tutorial", detail : "/docs" };
+
 class Article extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +61,7 @@ class Article extends Component {
     this.updateArticle(props.match.params.id || "top");
     var self = this;
     window.addEventListener("hashchange", function(){
-      var id = window.location.hash.split("#/docs").join("");
+      var id = window.location.hash.split("#" + path.detail).join("");
       id = id.split("/").join("");
       if (!window.id || window.id !== id) {
         window.id = id;
