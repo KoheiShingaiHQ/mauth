@@ -18,7 +18,6 @@ class Nav extends Component {
       if (currentPath === path[i]) {
         return i;
       }
-      return "";
     }
   }
   componentDidMount() {
@@ -35,7 +34,7 @@ class Nav extends Component {
   render() {
     return (
       <nav>
-        <ul data-selected={this.getObjectName("/" + window.location.hash.split("#").join("").split("/")[1])}>
+        <ul data-selected={this.getObjectName("/" + window.location.hash.split("#").join("").split("/")[1]) || ""}>
           <li id="close-menu" onClick={this.closeMenu}>☓</li>
           {this.state.menu}
         </ul>

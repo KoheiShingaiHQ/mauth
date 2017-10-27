@@ -5,15 +5,15 @@ const path = { list : "/tutorial", detail : "/docs" };
 class Footer extends Component {
   getObjectName(currentPath) {
     for (var i in path) {
+      console.log(path[i]);
       if (currentPath === path[i]) {
         return i;
       }
-      return "";
     }
   }
   render() {
     return (
-      <footer data-selected={this.getObjectName("/" + window.location.hash.split("#").join("").split("/")[1])}>
+      <footer data-selected={this.getObjectName("/" + window.location.hash.split("#").join("").split("/")[1]) || ""}>
         <section>
           <section>  
             <div className="links">
