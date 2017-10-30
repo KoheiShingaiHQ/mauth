@@ -5,7 +5,6 @@ const path = { list : "/category", detail : "/article" };
 class Footer extends Component {
   getObjectName(currentPath) {
     for (var i in path) {
-      console.log(path[i]);
       if (currentPath === path[i]) {
         return i;
       }
