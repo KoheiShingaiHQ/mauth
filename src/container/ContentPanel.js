@@ -62,6 +62,7 @@ class ContentPanel extends Component {
         }
       }
       }
+      document.getElementsByTagName("footer")[0].style.display = "block";
     });
   }
   componentWillReceiveProps(nextProps) {
@@ -70,6 +71,7 @@ class ContentPanel extends Component {
     }
   }
   componentDidMount() {
+    document.getElementsByTagName("footer")[0].style.display = "none";
     this.initContent(this.props.id);
   }
   render() {

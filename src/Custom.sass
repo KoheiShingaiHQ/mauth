@@ -1070,7 +1070,11 @@ footer
       display: inline-block
 
 @media only screen and (max-width: 840px)
+  body
+    &.show-search
+      overflow-y: hidden
   header
+    position: absolute
     &.show-menu
       height: 100%
     .left
@@ -1171,6 +1175,7 @@ footer
         height: 100%
         padding: 0px
         overflow-x: hidden
+        position: relative
         &> section
           padding: 12px 26px
         section#article-header
@@ -1240,11 +1245,13 @@ footer
           height: 100%
           width: 100%
           border: none
+          position: absolute
+          top: 0px
           &:before
             content: ""
   footer
     &[data-selected="detail"]
-      display: none
+      position: relative
       
 @media only screen and (max-height: 1162px)
   footer

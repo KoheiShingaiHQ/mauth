@@ -33,6 +33,7 @@ class Article extends Component {
     header.classList.remove('show-menu');
     if (main) {
       main.classList.remove('show-search');
+      document.body.classList.remove('show-search');
     }
     if (searchResult) {
       if (window.location.hash === "#/") {

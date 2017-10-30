@@ -21,6 +21,7 @@ class Header extends Component {
     e.preventDefault();
     var main = document.getElementsByTagName('main')[0];
     main.classList.toggle('show-search');
+    document.body.classList.toggle('show-search');
   }
   render() {
     return (
