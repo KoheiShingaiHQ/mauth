@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../container/Nav.js';
 import Search from '../container/Search.js';
 
-const path = { list : "/tutorial", detail : "/docs" };
+const path = { list : "/category", detail : "/article" };
 
 class Header extends Component {
   clickMenu(e) {

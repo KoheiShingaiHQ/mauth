@@ -7,13 +7,13 @@ import About from './container/About.js';
 import Article from './container/Article.js';
 import './Custom.css';
 
-const path = { list : "/tutorial", detail : "/docs" };
+const path = { list : "/category", detail : "/article" };
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header title="Cmsy"></Header>
+        <Header title="uiine.tokyo"></Header>
         <Route exact path="/" component={Top} />
         <Route exact path={path.list} component={About} />
         <Route exact path={path.detail} component={Article} />

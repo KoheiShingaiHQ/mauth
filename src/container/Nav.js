@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const path = { list : "/tutorial", detail : "/docs" };
+const path = { list : "/category", detail : "/article" };
 
 class Nav extends Component {
   constructor(props) {
