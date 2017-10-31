@@ -47,7 +47,6 @@ class About extends Component {
     var self = this;
     about.on('value', function(snapshot) {
       const val = snapshot.val();
-      console.log(val);
       if (aboutTag && val) {
         var squareTag = document.createElement("section");
         squareTag.id = "contents-square";
