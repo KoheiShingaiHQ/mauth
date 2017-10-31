@@ -7,7 +7,7 @@ import About from './container/About.js';
 import Article from './container/Article.js';
 import './Custom.css';
 
-const path = { list : "/category", detail : "/article" };
+const path = { list : "/recently", detail : "/article" };
 
 class App extends Component {
   render() {

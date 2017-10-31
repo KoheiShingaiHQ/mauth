@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const path = { list : "/category", detail : "/article" };
+const path = { list : "/recently", detail : "/article" };
 
 class Nav extends Component {
   constructor(props) {
@@ -23,8 +23,8 @@ class Nav extends Component {
   componentDidMount() {
     var menu = [];
     var data = [
-      {name: path.list.split('/').join(''), path: path.list, class: 'list'},
-      {name: path.detail.split('/').join(''), path: path.detail, class: 'detail'}
+      {name: path.detail.split('/').join(''), path: path.detail, class: 'detail'},
+      {name: path.list.split('/').join(''), path: path.list, class: 'list'}
     ];
     for(var i in data){
       menu.push(<Link to={data[i].path} key={data[i].name}><li className={data[i].class}>{data[i].name}</li></Link>);

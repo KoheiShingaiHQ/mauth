@@ -3,7 +3,7 @@ import ContentPanel from '../container/ContentPanel.js';
 import SidePanel from '../container/SidePanel.js';
 import ReactDOM from 'react-dom';
 
-const path = { list : "/category", detail : "/article" };
+const path = { list : "/recently", detail : "/article" };
 
 class Article extends Component {
   constructor(props) {
