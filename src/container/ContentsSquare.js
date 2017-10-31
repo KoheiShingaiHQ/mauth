@@ -12,8 +12,8 @@ class ContentsSquare extends Component {
     for(var i in data){
       var href, target = "";
       if (data[i].href) {
-        href = (data[i].href.indexOf("http") !== -1) ? data[i].href : "#" + data[i].href;
-        target = (data[i].href.indexOf("http") !== -1) ? "_blank" : "";
+        href = (data[i].href.indexOf("/") !== -1) ? "#/article/" + data[i].href : "https://www.instagram.com/p/" + data[i].href;
+        target = (data[i].href.indexOf("/") !== -1) ? "" : "_blank";
       }
       contents.push(
         <li key={data[i].main}>

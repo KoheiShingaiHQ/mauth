@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header title="uiine.tokyo"></Header>
-        <Route exact path="/" component={Top} />
+        <Route exact path="/" component={About} />
         <Route exact path={path.list} component={About} />
         <Route exact path={path.detail} component={Article} />
         <Route exact path={path.detail + "/:id"} component={Article} />
