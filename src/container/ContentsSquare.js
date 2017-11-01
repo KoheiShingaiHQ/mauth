@@ -16,7 +16,6 @@ class ContentsSquare extends Component {
       if (data[i].href) {
         hrefInsta = (data[i].href.indexOf("/") !== -1) ? "https://www.instagram.com/p" + data[i].href : "https://www.instagram.com/p/" + data[i].href;
         href = (data[i].href.indexOf("/") !== -1) ? "#/article" + data[i].href : "#/";
-        main = (data[i].href.indexOf("/") !== -1) ? "" : "New Create";
       }
       contents.push(
         <li key={data[i].main}>
@@ -25,7 +24,7 @@ class ContentsSquare extends Component {
           </a>
           <a href={href}>
             <div style={{backgroundImage:"url("+ data[i].image +")", backgroundSize:data[i].size}}>
-              <ContentLabel main={main} sub={data[i].sub}></ContentLabel>
+              <ContentLabel main={data[i].main} sub={data[i].sub}></ContentLabel>
             </div>
           </a>
         </li>
