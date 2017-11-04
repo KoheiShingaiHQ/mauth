@@ -29,38 +29,37 @@ class ContentPanel extends Component {
     const docs = firebaseDb.ref(path + "/" + language);
     docs.on('value', function(snapshot) {
       const val = snapshot.val();
-      if (val) {
       var headerTag = document.createElement("section");
       headerTag.id = "article-header";
       headerTag.classList.add(language);
       panelTag.innerHTML = "";
-      panelTag.appendChild(headerTag);
+      //panelTag.appendChild(headerTag);
       const header = React.createElement(ArticleHeader, {
         language : language,
         title : val.title
       });
-      ReactDOM.render(header, headerTag);
+      //ReactDOM.render(header, headerTag);
       if (id === "top") {
         var contentTag = document.createElement("div");
         panelTag.appendChild(contentTag);
         const content = React.createElement(components[val.type], { language : language, data : val.full });
         ReactDOM.render(content, contentTag);
       } else {
-        for (var i in val.content) {
+        //for (var i in val.content) {
           var contentTag = document.createElement("section");
-          const data = val.content[i];
-          contentTag.id = "content-" + (data.article || data.revision || data.file || data.project);
+          //const data = val.content[i];
+          contentTag.id = "content-" + id;
           panelTag.appendChild(contentTag);
           var props = {};
-          for (var j in data) {
-            props[j] = data[j];
-            props["id"] = contentTag.id;
-            props["language"] = language;
-          }
-          var content = React.createElement(components[data.type], props);
+          props["file"] = "readme/" + id;
+          props["post"] = "https://www.instagram.com/p/" + id + "/";
+          props["project"] = "cmsy-for-uiine-tokyo-writer";
+          props["user"] = "koheishingaiHQ";
+          props["id"] = contentTag.id;
+          props["language"] = language;
+          var content = React.createElement(components["github"], props);
           ReactDOM.render(content, contentTag);
-        }
-      }
+        //}
       }
       document.getElementsByTagName("footer")[0].style.display = "block";
     });

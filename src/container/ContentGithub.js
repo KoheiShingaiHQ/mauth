@@ -93,8 +93,8 @@ class ContentGithub extends Component {
             <h3 className="ja repository">リポジトリを見る</h3>
           </a> :
           <a target="_blank" href={this.props.post}>
-            <h3 className="en repository">See on GitHub</h3>
-            <h3 className="ja repository">GitHubで見る</h3>
+            <h3 className="en repository">See on Instagram</h3>
+            <h3 className="ja repository">Instagramで見る</h3>
           </a>
         }
         <section id={"section-" + this.props.id}></section>
