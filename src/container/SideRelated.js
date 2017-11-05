@@ -8,7 +8,7 @@ class SideRelated extends Component {
     super(props);
   }
   initRelated(props) {
-    var path = (props.id === "top") ? "top/" + props.language : "detail/" + props.id + "/" + props.language;
+    var path = (props.id === "top") ? "top/" + props.language : "detail/" + props.id + "/en";
     var sideRelated = document.getElementById("related");
     if (sideRelated) {
     var related = firebaseDb.ref(path + "/side/related");
@@ -23,7 +23,7 @@ class SideRelated extends Component {
         sideRelated.appendChild(parent);
         var props = {
           title : data.split(":::")[0].split('-').join(' '),
-          href : '#' + data.split(":::")[1],
+          href : data.split(":::")[1],
           language : self.language,
           target : (data.indexOf('http') !== -1) ? '_blank' : ''
         };

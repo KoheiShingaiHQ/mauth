@@ -28,6 +28,7 @@ class SidePanel extends Component {
         var props = {};
         for (var j in data) {
           props[j] = data[j];
+          language = data[j].match(/[\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf\u3400-\u4dbf]/) === null ? "en" : "ja";
           props["id"] = id;
           props["language"] = language;
         }
