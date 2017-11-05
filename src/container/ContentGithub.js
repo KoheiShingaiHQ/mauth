@@ -6,6 +6,19 @@ class ContentGithub extends Component {
     super(props);
     this.state = { link : "" }
   }
+  setScrollStatus() {
+    if (document.getElementById('about')) {
+      var header = document.getElementsByTagName('header')[0];
+      var main = document.getElementById('about');
+      var footer = document.getElementsByTagName('footer')[0];
+      var b = window.innerHeight;
+      var h = header.scrollHeight;
+      var m = main.scrollHeight;
+      var f = footer.scrollHeight;
+      var t = b - (h + m + f);
+      footer.dataset.scroll = (t < 12) ? true : false;
+    }
+  }
   initGithub(props) {
     var url1;
     if (this.props.language === "en") {
@@ -21,6 +34,7 @@ class ContentGithub extends Component {
     });
     var xhr1 = new XMLHttpRequest();
     xhr1.open('GET', url1);
+    var self = this;
     xhr1.onload = function loaded1(){
       var githubSection = document.getElementById("section-" + props.id);
       var renderer = new marked.Renderer();
@@ -34,6 +48,7 @@ class ContentGithub extends Component {
       if (githubSection) {
         githubSection.innerHTML = response;
       }
+      self.setScrollStatus();
     };
     xhr1.send();
     for (var i of (props.related || [])) {
@@ -83,6 +98,10 @@ class ContentGithub extends Component {
   }
   componentDidMount() {
     this.initGithub(this.props);
+    var self = this;
+    window.addEventListener('resize', function (event) {
+      self.setScrollStatus();
+    });
   }
   render() {
     return (
