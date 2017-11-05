@@ -40,7 +40,7 @@ class About extends Component {
     document.getElementsByTagName("footer")[0].style.opacity = opacity;
   }
   initAbout() {
-    localStorage.language = localStorage.language || 'english';
+    localStorage.language = 'english';
     var language = localStorage.language.substring(0, 2);
     var aboutTag = document.getElementById("about");
     var about = firebaseDb.ref("list/" + language);
