@@ -12,8 +12,8 @@ class ContentGithub extends Component {
       url1 = (props.revision) ? "https://rawgit.com/"+ props.user +"/"+ props.project +"/"+ props.revision +"/README.md" :
                                     "https://rawgit.com/"+ props.user +"/"+ props.project +"/master/"+ (props.file || "README") +".md";
     } else  {
-      url1 = (props.revision) ? "https://rawgit.com/"+ props.user +"/"+ props.project +"/"+ props.revision +"/README."+ props.language +".md" :
-                                    "https://rawgit.com/"+ props.user +"/"+ props.project +"/master/"+ (props.file || "README") +"."+ props.language +".md";
+      url1 = (props.revision) ? "https://rawgit.com/"+ props.user +"/"+ props.project +"/"+ props.revision +"/README.md" :
+                                    "https://rawgit.com/"+ props.user +"/"+ props.project +"/master/"+ (props.file || "README") +".md";
     }
     this.setState({ link : (props.revision) ? 
       "https://github.com/"+ props.user +"/"+ props.project +"/"+ props.revision :
