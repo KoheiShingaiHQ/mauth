@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-const path = { list : "/", detail : "/article" };
+const path = { list : "/", featured : "/featured", detail : "/article" };
 
 class Footer extends Component {
   getObjectName(currentPath) {

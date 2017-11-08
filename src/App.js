@@ -7,15 +7,15 @@ import About from './container/About.js';
 import Article from './container/Article.js';
 import './Custom.css';
 
-const path = { list : "/recently", detail : "/article" };
+const path = { list : "/", featured : "/featured", detail : "/article" };
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header title="uiine.tokyo"></Header>
-        <Route exact path="/" component={About} />
         <Route exact path={path.list} component={About} />
+        <Route exact path={path.featured} component={About} />
         <Route exact path={path.detail} component={Article} />
         <Route exact path={path.detail + "/:id"} component={Article} />
         <Footer></Footer>
