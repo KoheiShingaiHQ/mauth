@@ -3,9 +3,18 @@ import ContentsSquare from '../container/ContentsSquare.js';
 import { firebaseDb } from '../firebase/';
 import ReactDOM from 'react-dom';
 
+const path = { list : "/", featured : "/featured", detail : "/article" };
+
 class About extends Component {
   constructor(props) {
     super(props);
+  }
+  getObjectName(currentPath) {
+    for (var i in path) {
+      if (currentPath === path[i]) {
+        return i;
+      }
+    }
   }
   setScrollStatus() {
     if (document.getElementById('about')) {
@@ -43,7 +52,7 @@ class About extends Component {
     localStorage.language = 'english';
     var language = localStorage.language.substring(0, 2);
     var aboutTag = document.getElementById("about");
-    var about = firebaseDb.ref("list/" + language);
+    var about = firebaseDb.ref(this.getObjectName(window.location.hash.split("#").join("")) + "/" + language);
     var self = this;
     about.on('value', function(snapshot) {
       const val = snapshot.val();
