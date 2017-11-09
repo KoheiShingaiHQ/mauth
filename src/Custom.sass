@@ -1022,15 +1022,14 @@ footer
   bottom: 0px
   &[data-selected=""]
     position: absolute
-  &[data-selected="list"]
-    position: static
-  &[data-selected="detail"]
-    position: absolute
-    bottom: 0px
+  &[data-selected="list"], &[data-selected="featured"]
     &[data-scroll="true"]
       position: static
     &[data-scroll="false"]
       position: absolute
+  &[data-selected="detail"]
+    position: absolute
+    bottom: 0px
   section
     display: -ms-flexbox
     display: flex
@@ -1260,8 +1259,3 @@ footer
   footer
     &[data-selected="detail"]
       position: relative
-      
-@media only screen and (max-height: 1162px)
-  footer
-    &[data-selected=""]
-      position: static
