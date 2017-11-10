@@ -18,3 +18,7 @@ export function hideMenu() {
 export function setFooterOpacity(opacity) {
   document.getElementsByTagName("footer")[0].style.opacity = opacity;
 }
+
+export function getCurrentPath() {
+  return window.location.hash.split("#").join("");
+}

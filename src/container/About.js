@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hideMenu, setFooterOpacity } from '../container/Util.js';
+import { hideMenu, setFooterOpacity, getCurrentPath } from '../container/Util.js';
 import ContentsSquare from '../container/ContentsSquare.js';
 import { firebaseDb } from '../firebase/';
 import ReactDOM from 'react-dom';
@@ -34,7 +34,7 @@ class About extends Component {
     localStorage.language = 'english';
     var language = localStorage.language.substring(0, 2);
     var aboutTag = document.getElementById("about");
-    var about = firebaseDb.ref(this.getObjectName(window.location.hash.split("#").join("")) + "/" + language);
+    var about = firebaseDb.ref(this.getObjectName(getCurrentPath()) + "/" + language);
     var self = this;
     about.on('value', function(snapshot) {
       const val = snapshot.val();

@@ -11,32 +11,12 @@ class Top extends Component {
     super(props);
     this.state = { language : "" };
   }
-  hideScreen() {
-    var header = document.getElementsByTagName('header')[0];
-    var main = document.getElementsByTagName('main')[0];
-    var searchResult = document.getElementById('search-result');
-    header.classList.remove('show-menu');
-    if (main) {
-      main.classList.remove('show-search');
-      document.body.classList.remove('show-search');
-    }
-    if (searchResult) {
-      if (window.location.hash === "#/") {
-        searchResult.classList.remove('show');
-        document.getElementById('search-input').value = "";
-      }
-    }
-  }
-  setFooterOpacity(opacity) {
-    document.getElementsByTagName("footer")[0].style.opacity = opacity;
-  }
   initTop() {
     localStorage.language = localStorage.language || 'english';
     var language = localStorage.language.substring(0, 2);
     this.setState({ language : language });
     var topTag = document.getElementById("top");
     var top = firebaseDb.ref("top/" + language);
-    var self = this;
     top.on('value', function(snapshot) {
       const val = snapshot.val();
       if (topTag && val) {
@@ -46,13 +26,13 @@ class Top extends Component {
         topTag.appendChild(fullTag);
         const full = React.createElement(ContentsFull, {data : val.full});
         ReactDOM.render(full, fullTag);
-        self.setFooterOpacity(1);
+        setFooterOpacity(1);
       }
     });
   }
   componentDidMount() {
-    this.hideScreen();
-    this.setFooterOpacity(0);
+    hideMenu();
+    setFooterOpacity(0);
     this.initTop();
   }
   render() {
