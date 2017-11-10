@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hideMenu, setFooterOpacity } from '../container/Util.js';
 import ContentsSquare from '../container/ContentsSquare.js';
 import { firebaseDb } from '../firebase/';
 import ReactDOM from 'react-dom';
@@ -29,25 +30,6 @@ class About extends Component {
       footer.dataset.scroll = (t < 12) ? true : false;
     }
   }
-  hideScreen() {
-    var header = document.getElementsByTagName('header')[0];
-    var main = document.getElementsByTagName('main')[0];
-    var searchResult = document.getElementById('search-result');
-    header.classList.remove('show-menu');
-    if (main) {
-      main.classList.remove('show-search');
-      document.body.classList.remove('show-search');
-    }
-    if (searchResult) {
-      if (window.location.hash === "#/") {
-        searchResult.classList.remove('show');
-        document.getElementById('search-input').value = "";
-      }
-    }
-  }
-  setFooterOpacity(opacity) {
-    document.getElementsByTagName("footer")[0].style.opacity = opacity;
-  }
   initAbout() {
     localStorage.language = 'english';
     var language = localStorage.language.substring(0, 2);
@@ -64,14 +46,14 @@ class About extends Component {
         aboutTag.appendChild(squareTag);
         const square = React.createElement(ContentsSquare, {data : val.square});
         ReactDOM.render(square, squareTag);
-        self.setFooterOpacity(1);
+        setFooterOpacity(1);
         self.setScrollStatus();
       }
     });
   }
   componentDidMount() {
-    this.hideScreen();
-    this.setFooterOpacity(0);
+    hideMenu();
+    setFooterOpacity(0);
     this.initAbout();
     var self = this;
     window.addEventListener('resize', function (event) {

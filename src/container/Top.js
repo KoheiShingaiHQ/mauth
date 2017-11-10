@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom';
+import { hideMenu, setFooterOpacity } from '../container/Util.js';
 import ContentsFull from '../container/ContentsFull.js';
 import ContentsHalf from '../container/ContentsHalf.js';
 import { firebaseDb } from '../firebase/';

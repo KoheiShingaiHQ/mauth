@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hideMenu, setFooterOpacity } from '../container/Util.js';
 import ContentPanel from '../container/ContentPanel.js';
 import SidePanel from '../container/SidePanel.js';
 import ReactDOM from 'react-dom';
@@ -9,25 +10,6 @@ class Article extends Component {
   constructor(props) {
     super(props);
     this.state = { id : this.props.match.params.id || "" }
-  }
-  setFooterOpacity(opacity) {
-    document.getElementsByTagName("footer")[0].style.opacity = opacity;
-  }
-  hideScreen() {
-    var header = document.getElementsByTagName('header')[0];
-    var main = document.getElementsByTagName('main')[0];
-    var searchResult = document.getElementById('search-result');
-    header.classList.remove('show-menu');
-    if (main) {
-      main.classList.remove('show-search');
-      document.body.classList.remove('show-search');
-    }
-    if (searchResult) {
-      if (window.location.hash === "#/") {
-        searchResult.classList.remove('show');
-        document.getElementById('search-input').value = "";
-      }
-    }
   }
   updateArticle(id) {
     var articleTag = document.getElementById("article");
@@ -54,13 +36,14 @@ class Article extends Component {
       if (!window.id || window.id !== id) {
         window.id = id;
         self.updateArticle(id || "top");
-        self.hideScreen();
+        hideMenu();
       }
+      setFooterOpacity(1);
     }, false);
   }
   componentDidMount() {
-    this.hideScreen();
-    this.setFooterOpacity(1);
+    hideMenu();
+    setFooterOpacity(0);
     this.initArticle(this.props);
   }
   render() {
