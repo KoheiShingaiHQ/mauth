@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hideMenu, setFooterOpacity, getCurrentPath } from '../container/Util.js';
+import { hideMenu, setFooterOpacity, getCurrentPath, setScrollStatus } from '../container/Util.js';
 import ContentPanel from '../container/ContentPanel.js';
 import SidePanel from '../container/SidePanel.js';
 import ReactDOM from 'react-dom';
@@ -38,6 +38,7 @@ class Article extends Component {
         hideMenu();
       }
       setFooterOpacity(1);
+      setScrollStatus();
     }, false);
   }
   componentDidMount() {

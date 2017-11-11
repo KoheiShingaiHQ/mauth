@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { hideMenu, setFooterOpacity, getCurrentPath } from '../container/Util.js';
+import { hideMenu, setFooterOpacity, getCurrentPath, setScrollStatus } from '../container/Util.js';
 import ContentsSquare from '../container/ContentsSquare.js';
 import { firebaseDb } from '../firebase/';
 import ReactDOM from 'react-dom';
@@ -15,19 +15,6 @@ class About extends Component {
       if (currentPath === path[i]) {
         return i;
       }
-    }
-  }
-  setScrollStatus() {
-    if (document.getElementById('about')) {
-      var header = document.getElementsByTagName('header')[0];
-      var main = document.getElementById('about');
-      var footer = document.getElementsByTagName('footer')[0];
-      var b = window.innerHeight;
-      var h = header.scrollHeight;
-      var m = main.scrollHeight;
-      var f = footer.scrollHeight;
-      var t = b - (h + m + f);
-      footer.dataset.scroll = (t < 12) ? true : false;
     }
   }
   initAbout() {
@@ -47,7 +34,7 @@ class About extends Component {
         const square = React.createElement(ContentsSquare, {data : val.square});
         ReactDOM.render(square, squareTag);
         setFooterOpacity(1);
-        self.setScrollStatus();
+        setScrollStatus();
       }
     });
   }
@@ -57,7 +44,7 @@ class About extends Component {
     this.initAbout();
     var self = this;
     window.addEventListener('resize', function (event) {
-      self.setScrollStatus();
+      setScrollStatus();
     });
   }
   render() {
