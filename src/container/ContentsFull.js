@@ -10,8 +10,9 @@ class ContentsFull extends Component {
     var contents = [];
     var data = this.props.data;
     for(var i in data){
+      var href = data[i].href ? "#" + data[i].href : "";
       contents.push(
-        <a key={data[i].image} href={data[i].href ? "#" + data[i].href : ""}>
+        <a key={i} href={(href.indexOf("http") !== -1 || href === "") ? href.split("#").join("") : href} target={(href.indexOf("http") !== -1) ? "_blank" : ""}>
           <li style={{backgroundImage:"url("+ data[i].image +")",height:data[i].height,opacity:data[i].opacity}}>
             <div>
               <Content full_main={data[i].main} full_sub={data[i].sub} color={data[i].color}></Content>

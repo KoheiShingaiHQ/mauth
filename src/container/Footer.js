@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { getCurrentPath } from '../container/Util.js';
 
-const path = { list : "/", detail : "/article" };
+const path = { list : "/", featured : "/featured", detail : "/article" };
 
 class Footer extends Component {
   getObjectName(currentPath) {
@@ -12,7 +13,7 @@ class Footer extends Component {
   }
   render() {
     return (
-      <footer data-selected={this.getObjectName("/" + window.location.hash.split("#").join("").split("/")[1]) || ""}>
+      <footer data-selected={this.getObjectName("/" + getCurrentPath().split("/")[1]) || ""}>
         <section>
           <section>  
             <div className="links">

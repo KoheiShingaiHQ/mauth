@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getCurrentPath } from '../container/Util.js';
 
-const path = { list : "/", detail : "/article" };
+const path = { list : "/", featured : "/featured", detail : "/article" };
 
 class Nav extends Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Nav extends Component {
     var menu = [];
     var data = [
       {name: path.detail.split('/').join(''), path: path.detail, class: 'detail'},
+      {name: "featured", path: '/featured', class: 'featured'},
       {name: "recently", path: path.list, class: 'list'}
     ];
     for(var i in data){
@@ -34,7 +36,7 @@ class Nav extends Component {
   render() {
     return (
       <nav>
-        <ul data-selected={this.getObjectName("/" + window.location.hash.split("#").join("").split("/")[1]) || ""}>
+        <ul data-selected={this.getObjectName("/" + getCurrentPath().split("/")[1]) || ""}>
           <li id="close-menu" onClick={this.closeMenu}>☓</li>
           {this.state.menu}
         </ul>
