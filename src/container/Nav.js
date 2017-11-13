@@ -25,8 +25,8 @@ class Nav extends Component {
     var menu = [];
     var data = [
       {name: path.detail.split('/').join(''), path: path.detail, class: 'detail'},
-      {name: "featured", path: '/featured', class: 'featured'},
-      {name: "recently", path: path.list, class: 'list'}
+      {name: "favorite", path: '/featured', class: 'featured'},
+      {name: "timeline", path: path.list, class: 'list'}
     ];
     for(var i in data){
       menu.push(<Link to={data[i].path} key={data[i].name}><li className={data[i].class}>{data[i].name}</li></Link>);
