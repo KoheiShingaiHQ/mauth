@@ -18,8 +18,7 @@ class About extends Component {
     }
   }
   initAbout() {
-    localStorage.language = 'english';
-    var language = localStorage.language.substring(0, 2);
+    var language = 'en';
     var aboutTag = document.getElementById("about");
     var about = firebaseDb.ref(this.getObjectName(getCurrentPath()) + "/" + language);
     var self = this;
