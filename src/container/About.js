@@ -37,6 +37,10 @@ class About extends Component {
         setScrollStatus();
       }
     });
+    window.addEventListener("hashchange", function(){
+      setFooterOpacity(1);
+      setScrollStatus();
+    }, false);
   }
   componentDidMount() {
     hideMenu();

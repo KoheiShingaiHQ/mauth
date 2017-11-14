@@ -24,7 +24,7 @@ class Nav extends Component {
   componentDidMount() {
     var menu = [];
     var data = [
-      {name: path.detail.split('/').join(''), path: path.detail, class: 'detail'},
+      {name: "docs", path: path.detail, class: 'detail'},
       {name: "favorite", path: '/featured', class: 'featured'},
       {name: "timeline", path: path.list, class: 'list'}
     ];
