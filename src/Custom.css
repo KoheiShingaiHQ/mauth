@@ -65,6 +65,9 @@ header {
     header nav ul[data-selected="list"] li.list {
       color: #3897f0;
       cursor: default; }
+    header nav ul[data-selected="featured"] li.featured {
+      color: #3897f0;
+      cursor: default; }
     header nav ul[data-selected="detail"] li.detail {
       color: #3897f0;
       cursor: default; }
@@ -985,15 +988,13 @@ footer {
   bottom: 0px; }
   footer[data-selected=""] {
     position: absolute; }
-  footer[data-selected="list"] {
+  footer[data-selected="list"][data-scroll="true"], footer[data-selected="featured"][data-scroll="true"] {
     position: static; }
+  footer[data-selected="list"][data-scroll="false"], footer[data-selected="featured"][data-scroll="false"] {
+    position: absolute; }
   footer[data-selected="detail"] {
     position: absolute;
     bottom: 0px; }
-    footer[data-selected="detail"][data-scroll="true"] {
-      position: static; }
-    footer[data-selected="detail"][data-scroll="false"] {
-      position: absolute; }
   footer section {
     display: -ms-flexbox;
     display: flex;
@@ -1204,7 +1205,3 @@ footer {
         content: ""; }
   footer[data-selected="detail"] {
     position: relative; } }
-
-@media only screen and (max-height: 1162px) {
-  footer[data-selected=""] {
-    position: static; } }
