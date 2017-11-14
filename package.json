@@ -1,7 +1,7 @@
 {
   "name": "koheishingai",
   "version": "0.1.0",
-  "homepage": "https://koheishingaiHQ.github.io/cmsy-for-uiine-tokyo/",
+  "homepage": "https://koheishingaiHQ.github.io/mauth/",
   "private": true,
   "dependencies": {
     "firebase": "4.3.0",
