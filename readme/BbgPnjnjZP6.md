@@ -3,20 +3,22 @@
 The **population mean** symbol is `μ`.
 
 ## Formula
-### ■ Text Typing
+### ■ Text
 ```
-μ = (Σ * X)/ N
+μ = ( Σ * X ) / N
 ```
+
+### ■ MathJax, LaTeX
+```
+\mu = \frac{ 1 }{ n } \sum_{ i = 1 }^{ n } x_i
+```
+
 ### ■ R
 ```R
 > library(MASS)  # load the MASS package 
 > height.survey = survey$Height
 > mean(height.survey, na.rm=TRUE) # skip missing values
 [1] 172.38
-```
-### ■ MathJax
-```
-\mu = \frac{ 1 }{ n } \sum_{ i = 1 }^{ n } x_i
 ```
 
 ## Definition
