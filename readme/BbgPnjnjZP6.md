@@ -3,6 +3,9 @@
 The **population mean** symbol is `μ`.
 
 ## Formula
+### ■ Image
+![population-mean-1](https://wikimedia.org/api/rest_v1/media/math/render/svg/8a3d3012d5abe0bb680ff8e6026325e032400ee8)
+
 ### ■ Text
 ```
 μ = ( Σ * X ) / N
@@ -32,5 +35,5 @@ The **population mean** is an **average** of a group characteristic.
 In **statistics**, it’s actually rare that you can calculate the **population mean**.  
 That’s because asking an **entire population** about something is usually cost prohibitive or too time consuming.
 
-![population-mean](http://www.statisticshowto.com/wp-content/uploads/2009/09/normaldistlessthan4.jpg)
+![population-mean-2](http://www.statisticshowto.com/wp-content/uploads/2009/09/normaldistlessthan4.jpg)
 A normal distribution curve showing a mean of 15.
