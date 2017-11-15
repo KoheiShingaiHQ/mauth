@@ -35,7 +35,7 @@ class ContentsSquare extends Component {
                 l110.58-202.919c8.727-16.014,25.477-25.962,43.714-25.962h1.992h3v-3v-9.613v-3h-2.999L455.724,93.489L455.724,93.489z"/>
             </svg>
           </a>
-          <a href={href}>
+          <a href={href} target="_blank">
             <div style={{backgroundImage:"url("+ data[i].image +")", backgroundSize:data[i].size}}>
               <ContentLabel main={data[i].main} sub={data[i].sub}></ContentLabel>
             </div>
