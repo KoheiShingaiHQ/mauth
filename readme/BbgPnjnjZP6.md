@@ -2,10 +2,16 @@
 ## Symbol
 The **population mean** symbol is `μ`.
 
+## Formula
+The formula to find the population mean is:
+```
+μ = (Σ * X)/ N
+```
+
 ## Definition
 The **population mean** is an **average** of a group characteristic.  
 
-> For example:  
+> For example :  
 > - In a school of `1,013` students, the **average** GPA is `3.1`.
 > - Dogs seen in a certain veterinary practice weigh, on **average**, `38` pounds.
 > - Books in one school’s public library are checked out `7` times per year, on **average**.
