@@ -3,9 +3,16 @@
 The **population mean** symbol is `μ`.
 
 ## Formula
-The formula to find the population mean is:
+### ■ Text Typing
 ```
 μ = (Σ * X)/ N
+```
+### ■ R
+```R
+> library(MASS)  # load the MASS package 
+> height.survey = survey$Height
+> mean(height.survey, na.rm=TRUE) # skip missing values
+[1] 172.38
 ```
 
 ## Definition
