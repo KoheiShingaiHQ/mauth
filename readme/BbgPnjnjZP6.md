@@ -13,5 +13,5 @@ The **population mean** is an **average** of a group characteristic.
 In **statistics**, it’s actually rare that you can calculate the **population mean**.  
 That’s because asking an **entire population** about something is usually cost prohibitive or too time consuming.
 
-A normal distribution curve showing a mean of 15.
 ![population-mean](http://www.statisticshowto.com/wp-content/uploads/2009/09/normaldistlessthan4-150x150.jpg)
+A normal distribution curve showing a mean of 15.
