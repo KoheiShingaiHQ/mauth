@@ -8,7 +8,7 @@ The **population mean** symbol is `μ`.
 μ = ( Σ * X ) / N
 ```
 
-### ■ MathJax, LaTeX
+### ■ MathJax or LaTeX
 ```
 \mu = \frac{ 1 }{ n } \sum_{ i = 1 }^{ n } x_i
 ```
