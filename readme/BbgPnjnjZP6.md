@@ -14,6 +14,10 @@ The **population mean** symbol is `μ`.
 > mean(height.survey, na.rm=TRUE) # skip missing values
 [1] 172.38
 ```
+### ■ MathJax
+```
+\mu = \frac{ 1 }{ n } \sum_{ i = 1 }^{ n } x_i
+```
 
 ## Definition
 The **population mean** is an **average** of a group characteristic.  
