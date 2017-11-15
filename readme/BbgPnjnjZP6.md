@@ -4,7 +4,7 @@ The **population mean** symbol is `μ`.
 
 ## Formula
 ### ■ Image
-![population-mean-1](https://wikimedia.org/api/rest_v1/media/math/render/svg/8a3d3012d5abe0bb680ff8e6026325e032400ee8)
+![population-mean-1](https://wikimedia.org/api/rest_v1/media/math/render/svg/8913af7aa798971f4ebbbae206b18a996536b4d5)
 
 ### ■ Text
 ```
