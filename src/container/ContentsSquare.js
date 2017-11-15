@@ -20,6 +20,10 @@ class ContentsSquare extends Component {
         hrefWiki = "";
         display = "none";
       }
+      if (data[i].category) {
+        var categories = data[i].category.split("_").join(" : ");
+        document.getElementById("main-title").innerText = "Mauth : " + categories;
+      }
       contents.push(
         <li key={data[i].image}>
           <a href={hrefWiki} target="_blank" style={{display:display}}>
