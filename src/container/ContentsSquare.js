@@ -12,14 +12,17 @@ class ContentsSquare extends Component {
     for(var i in data){
       var hrefWiki, href;
       var targetInsta, target;
-      var main;
+      var display = "block";
       if (data[i].href) {
         hrefWiki = "https://en.wikipedia.org/wiki/" + data[i].wiki;
         href = (data[i].href.indexOf("/") !== -1) ? "#/article" + data[i].href : "#/";
+      } else {
+        hrefWiki = "";
+        display = "none";
       }
       contents.push(
         <li key={data[i].image}>
-          <a href={hrefWiki} target="_blank">
+          <a href={hrefWiki} target="_blank" style={{display:display}}>
             <svg style={{position:"absolute",zIndex:2,marginTop:"5px",marginLeft:"5px",opacity:.98}} aria-hidden="true" width="32px" height="32px" viewBox="0 0 485 485" fill="rgba(0,0,0,.29)" x="0px" y="0px" viewBox="0 0 458.723 458.723">
               <path d="M455.724,93.489H367.32h-3v3v9.613v3h3h6.143c7.145,0,13.588,3.667,17.237,9.81
                 c3.648,6.143,3.786,13.555,0.368,19.829l-98.3,180.432l-44.769-106.727l42.169-77.382c8.727-16.014,25.477-25.962,43.714-25.962
