@@ -13,7 +13,7 @@ The **population mean** symbol is `μ`.
 
 ### ■ MathJax or LaTeX
 ```
-\mu = \frac{ 1 }{ n } \sum_{ i = 1 }^{ n } x_i
+\displaystyle \mu = \frac{ 1 }{ n } \sum_{ i = 1 }^{ n } x_i
 ```
 
 ### ■ R
