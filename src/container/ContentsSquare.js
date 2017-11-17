@@ -47,7 +47,7 @@ class ContentsSquare extends Component {
           </a>
           <a href={href}>
             <div style={{backgroundImage:"url("+ data[i].image +")", backgroundSize:data[i].size}}>
-              <ContentLabel main={data[i].main} sub={data[i].sub}></ContentLabel>
+              <ContentLabel main={data[i].order + " " + data[i].main} sub={data[i].sub}></ContentLabel>
             </div>
           </a>
         </li>
