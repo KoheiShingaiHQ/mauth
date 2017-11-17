@@ -15,7 +15,7 @@
 
 ### ■ R
 ```R
-> pop.var <- function(x) var(x) * (length(x)-1) / length(x)
+pop.var <- function(x) var(x) * (length(x)-1) / length(x)
 ```
 
 ## Definition
