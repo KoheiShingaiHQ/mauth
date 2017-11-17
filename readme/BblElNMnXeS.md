@@ -10,7 +10,7 @@
 
 ### ■ MathJax or LaTeX
 ```
-\sigma = \frac{ 1 }{ n } \sum_{ i = 1}^{ n } ( x_i - μ )^2
+\displaystyle \sigma = \frac{ 1 }{ n } \sum_{ i = 1}^{ n } ( x_i - μ )^2
 ```
 
 ### ■ R
