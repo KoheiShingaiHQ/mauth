@@ -9,6 +9,11 @@ class ContentsSquare extends Component {
   componentDidMount() {
     var contents = [];
     var data = this.props.data;
+    data.sort(function(a,b){
+      if(a.order < b.order) return -1;
+      if(a.order > b.order) return 1;
+      return 0;
+    });
     for(var i in data){
       var hrefWiki, href;
       var targetInsta, target;
