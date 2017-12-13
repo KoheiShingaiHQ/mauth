@@ -12,7 +12,7 @@ class Top extends Component {
     this.state = { language : "" };
   }
   initTop() {
-    localStorage.language = localStorage.language || 'english';
+    localStorage.language = 'english';
     var language = localStorage.language.substring(0, 2);
     this.setState({ language : language });
     var topTag = document.getElementById("top");

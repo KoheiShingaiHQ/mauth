@@ -14,7 +14,7 @@ class Nav extends Component {
     this._handleKeyPress = this._handleKeyPress.bind(this);
   }
   componentDidMount() {
-    localStorage.language = localStorage.language || 'english';
+    localStorage.language = 'english';
     var langStorage = localStorage.language.substring(0, 2);
     var searchResult = document.getElementById('search-result');
     searchResult.classList.add(langStorage);

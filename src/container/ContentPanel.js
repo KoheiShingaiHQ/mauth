@@ -23,7 +23,7 @@ class ContentPanel extends Component {
   }
   initContent(id) {
     var path = (id === "top") ? "top" : "detail/" + id;
-    localStorage.language = localStorage.language || "english";
+    localStorage.language = "english";
     var language = localStorage.language.substring(0, 2);
     var panelTag = document.getElementById("content-panel");
     const docs = firebaseDb.ref(path + "/" + language);
